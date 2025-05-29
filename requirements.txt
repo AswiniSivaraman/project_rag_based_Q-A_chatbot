@@ -1,0 +1,11 @@
+pymongo
+python-dotenv
+pandas
+sqlalchemy mysql-connector-python
+openai
+langchain
+langchain_community
+tiktoken
+numpy
+streamlit
+faiss-cpu
