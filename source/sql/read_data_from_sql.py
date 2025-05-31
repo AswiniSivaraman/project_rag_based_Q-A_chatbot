@@ -14,15 +14,15 @@ def load_table_as_df(table_name):
     try:
         conn = connection()
         if conn is None:
-            print("❌ No connection established.")
+            print("No connection established.")
             return pd.DataFrame()
         
         query = f"SELECT * FROM {table_name};"
         df = pd.read_sql(query, conn)
-        print(f"✅ Loaded {len(df)} records from '{table_name}' table.")
+        print(f"Loaded {len(df)} records from '{table_name}' table.")
         conn.close()
         return df
 
     except Exception as e:
-        print(f"❌ Error while reading {table_name}: {e}")
+        print(f"Error while reading {table_name}: {e}")
         return pd.DataFrame()

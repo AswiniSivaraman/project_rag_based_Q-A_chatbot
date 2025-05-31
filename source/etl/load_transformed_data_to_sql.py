@@ -8,4 +8,4 @@ def load_transformed_data(cleaned_data):
     print("Inserting cleaned data into tables...")
     insert_all_data(cleaned_data)
 
-    print("✅ ETL load process completed.")
+    print("ETL load process completed.")

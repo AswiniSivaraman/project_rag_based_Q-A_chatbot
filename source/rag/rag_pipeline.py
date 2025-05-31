@@ -18,10 +18,10 @@ def answer_movie_question(query: str, k: int = 3) -> str:
     index_file = os.path.join(vectorstore_path, "faiss.index")
 
     if not os.path.exists(index_file):
-        print("📦 Vectorstore not found. Building now...")
+        print("Vectorstore not found. Building now...")
         build_and_save_vectorstore()
     else:
-        print("✅ Vectorstore found. Loading...")
+        print("Vectorstore found. Loading...")
 
     # Load the FAISS vectorstore
     vectorstore = load_vectorstore()

@@ -40,10 +40,10 @@ def create_all_tables():
         create_table_comments(cursor)
 
         conn.commit()
-        print("✅ All tables created successfully.")
+        print("All tables created successfully.")
 
     except Exception as e:
-        print("❌ Error during table creation:", e)
+        print("Error during table creation:", e)
         conn.rollback()
     
     finally:

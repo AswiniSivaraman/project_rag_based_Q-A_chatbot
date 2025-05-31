@@ -14,7 +14,7 @@ api_key = os.getenv("api_key_5")
 def build_and_save_vectorstore(save_path="vectorstores/movie_index"):
     # 1. Load final merged list of strings
     all_sentences = get_final_merged_list()
-    print(f"📥 Loaded {len(all_sentences)} text entries")
+    print(f"Loaded {len(all_sentences)} text entries")
 
     # 2. Convert to LangChain Documents
     docs = [Document(page_content=sentence) for sentence in all_sentences]
@@ -22,7 +22,7 @@ def build_and_save_vectorstore(save_path="vectorstores/movie_index"):
     # 3. Split into smaller chunks
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     split_docs = splitter.split_documents(docs)
-    print(f"📎 Split into {len(split_docs)} chunks")
+    print(f"Split into {len(split_docs)} chunks")
 
     # 4. Initialize embedding model
     embeddings = OpenAIEmbeddings(openai_api_key=api_key)
@@ -32,7 +32,7 @@ def build_and_save_vectorstore(save_path="vectorstores/movie_index"):
 
     # 6. Save vectorstore
     vectorstore.save_local(save_path)
-    print(f"✅ Vectorstore saved to '{save_path}'")
+    print(f"Vectorstore saved to '{save_path}'")
 
 
 

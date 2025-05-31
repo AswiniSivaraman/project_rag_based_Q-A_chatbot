@@ -55,10 +55,10 @@ def insert_all_data(cleaned_data):
             print("Inserting comments...")
             insert_comments(conn, cleaned_data["comments"].values.tolist())
 
-        print("✅ All data inserted successfully.")
+        print("All data inserted successfully.")
     
     except Exception as e:
-        print("❌ Error during data insertion:", e)
+        print("Error during data insertion:", e)
         conn.rollback()
     
     finally:
