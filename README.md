@@ -33,8 +33,8 @@ An intelligent movie QA system built using **LangChain**, **OpenAI**, and **FAIS
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/movie-qa-rag.git
-cd movie-qa-rag
+git clone https://github.com/AswiniSivaraman/project_rag_based_Q-A_chatbot.git
+cd <file path>
 ```
 
 ### 2. Install Dependencies
@@ -63,3 +63,30 @@ api_key_5=sk-...
 ```
 
 ⚠️ Important: Make sure your .env file is listed in .gitignore to avoid pushing sensitive info to GitHub.
+
+---
+
+## Run the Application
+
+**Step 1**: Execute the backend setup script to:
+
+- Extract data from MongoDB
+
+- Transform and load it into SQL
+
+- Generate and store embeddings
+
+```bash
+python main.py
+```
+
+**Step 2:** Launch the Streamlit interface to start asking questions:
+```bash
+streamlit run chatbot.py
+```
+
+Once the app is running, you can ask movie-related questions
+
+---
+
+
