@@ -34,7 +34,7 @@ An intelligent movie QA system built using **LangChain**, **OpenAI**, **FAISS**,
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/AswiniSivaraman/project_rag_based_Q-A_chatbot.git
+git clone https://github.com/AswiniSivaraman/project_rag_based_movie_QA_chatbot.git
 cd <file path>
 ```
 
