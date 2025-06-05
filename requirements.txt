@@ -1,11 +1,21 @@
 pymongo
 python-dotenv
 pandas
-sqlalchemy mysql-connector-python
+sqlalchemy 
+mysql-connector-python
 openai
 langchain
-langchain_community
+langchain-community
 tiktoken
 numpy
 streamlit
 faiss-cpu
+fpdf
+langchain-groq
+sentence-transformers
+langchain-huggingface
+torch
+pinecone
+pinecone-client 
+langchain-pinecone
+langchain-openai

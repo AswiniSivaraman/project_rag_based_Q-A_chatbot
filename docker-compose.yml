@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  movie-qa:
+    image: streamlit-movie-qa-bot
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
