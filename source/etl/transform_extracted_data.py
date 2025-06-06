@@ -1,3 +1,6 @@
+# Clean the extracted data from MongoDB collections. This is the second step in the ETL process.
+
+# Import necessary libraries
 from utils.transform_comments_data import clean_comments
 from utils.transform_embedded_movies_data import clean_embedded_movies
 from utils.transform_movies_data import clean_movies

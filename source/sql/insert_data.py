@@ -1,3 +1,4 @@
+# Import necessary libraries
 from source.sql.create_connection import connection
 from source.sql.insert_query import (
     user_query, session_query, theater_query, movie_query,

@@ -1,3 +1,4 @@
+# Import necessary libraries
 import os
 from langchain.chains import RetrievalQA
 from langchain_openai import ChatOpenAI # Use OpenAI's chat model if you wan to use it for paid
@@ -16,9 +17,9 @@ import time
 # -------------------------- NOTE: Not suitable for Dockerized or production deployments, as local files may not persist. -------------------------------------------------------------------------------
 
 
-def answer_movie_question_faiss(query: str, k: int = 3) -> str:
+def answer_movie_question_faiss(query: str, k: int = 5) -> str:
     """
-    Generates an answer to a movie question using RAG pipeline.
+    Generates an answer to a movie question using FAISS-based RAG pipeline.
     If the vectorstore is not found, it builds one from scratch.
     """
     start_total = time.time()
@@ -87,7 +88,7 @@ def answer_movie_question_faiss(query: str, k: int = 3) -> str:
 # ------------------------------------------------  Use this when you're deploying or scaling your app. Pinecone provides persistent and scalable vector storage. --------------------------------------
 
 
-def answer_movie_question_pinecone(query: str, k: int = 5) -> str:
+def answer_movie_question_pinecone(query: str, k: int = 10) -> str:
     """
     Generates an answer to a movie question using Pinecone-based RAG pipeline.
     If the Pinecone vectorstore is not available, it builds and uploads one.

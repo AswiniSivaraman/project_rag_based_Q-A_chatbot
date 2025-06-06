@@ -1,3 +1,4 @@
+# Import necessary libraries
 from langchain_openai import OpenAIEmbeddings  # use if you have OpenAI API access which is paid 
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings # use if you want to use free embeddings

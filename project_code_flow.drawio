@@ -1,0 +1,424 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" version="27.0.9" pages="2">
+  <diagram name="pinecone based chatbot" id="LasDxOR8xDUmJ6ghbB_T">
+    <mxGraphModel dx="2809" dy="2089" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="l2xFuCRRe57t5iRW875X-2" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;&lt;b&gt;Movie-based RAG Q&amp;amp;A chatbot project code flow using pinecone for vectorstore and groq inference for model, huggingface for embeddings&lt;/b&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="10" width="690" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="l2xFuCRRe57t5iRW875X-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="234" y="85" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-3" value="" style="swimlane;startSize=0;" vertex="1" parent="1">
+          <mxGeometry x="230" y="95" width="310" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="l2xFuCRRe57t5iRW875X-3" source="l2xFuCRRe57t5iRW875X-1" target="l2xFuCRRe57t5iRW875X-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-1" value="Extract data from Mongodb using pymongo package" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-3">
+          <mxGeometry x="30" y="50" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-6" value="Step 1 : ETL Process" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="l2xFuCRRe57t5iRW875X-3">
+          <mxGeometry x="15" y="10" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="l2xFuCRRe57t5iRW875X-3" source="l2xFuCRRe57t5iRW875X-7" target="l2xFuCRRe57t5iRW875X-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-7" value="Transform the extracted data ( the extraced data is unstructured , we are structuring it here )" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-3">
+          <mxGeometry x="30" y="150" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-8" value="create tables for comments, movies, embedded_movies, theaters, users, sessions and load the transformed data" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-3">
+          <mxGeometry x="30" y="250" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-13" value="" style="swimlane;startSize=0;" vertex="1" parent="1">
+          <mxGeometry y="480" width="910" height="1330" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-15" value="Step 2 : RAG Pipeline" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="96" y="18" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-16" value="check if the vectors are loaded in pinecone index" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="106" y="50" width="480" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="l2xFuCRRe57t5iRW875X-13" source="l2xFuCRRe57t5iRW875X-17" target="l2xFuCRRe57t5iRW875X-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-17" value="fetch the vectors from the pinecone index" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="96" y="180" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-22" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.589;entryY=-0.05;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="l2xFuCRRe57t5iRW875X-13" source="l2xFuCRRe57t5iRW875X-16" target="l2xFuCRRe57t5iRW875X-17">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="356" y="70" as="sourcePoint" />
+            <mxPoint x="406" y="20" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-49" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="l2xFuCRRe57t5iRW875X-13" source="l2xFuCRRe57t5iRW875X-23" target="l2xFuCRRe57t5iRW875X-48">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="604" y="270" />
+              <mxPoint x="604" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-23" value="Build &amp;amp; Upload New Vectorstore to Pinecone" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="504" y="180" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="l2xFuCRRe57t5iRW875X-13" source="l2xFuCRRe57t5iRW875X-30" target="l2xFuCRRe57t5iRW875X-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-30" value="Setup Retriever (k=5) from Vectorstore" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="96" y="280" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="l2xFuCRRe57t5iRW875X-13" source="l2xFuCRRe57t5iRW875X-32" target="l2xFuCRRe57t5iRW875X-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-32" value="Initialize Groq-based LLM (gemma2-9b-it)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="96" y="370" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-37" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="l2xFuCRRe57t5iRW875X-13" source="l2xFuCRRe57t5iRW875X-34" target="l2xFuCRRe57t5iRW875X-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-34" value="Define ChatPromptTemplate for RAG" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="96" y="465" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-39" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="l2xFuCRRe57t5iRW875X-13" source="l2xFuCRRe57t5iRW875X-36" target="l2xFuCRRe57t5iRW875X-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-36" value="Create RetrievalQA Chain (combine retriever and LLM)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="96" y="570" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-102" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="l2xFuCRRe57t5iRW875X-13" source="l2xFuCRRe57t5iRW875X-38" target="l2xFuCRRe57t5iRW875X-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-38" value="Invoke RAG Chain with User Query" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="96" y="670" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-40" value="Return Generated Answer" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="96" y="770" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-51" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="l2xFuCRRe57t5iRW875X-13" source="l2xFuCRRe57t5iRW875X-48" target="l2xFuCRRe57t5iRW875X-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-48" value="Retrieve and Merge All Movie Data into Natural Language Sentences" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="504" y="280" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-74" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="l2xFuCRRe57t5iRW875X-13" source="l2xFuCRRe57t5iRW875X-50" target="l2xFuCRRe57t5iRW875X-73">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-50" value="Convert Sentences to LangChain Document Objects" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="504" y="390" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-76" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="l2xFuCRRe57t5iRW875X-13" source="l2xFuCRRe57t5iRW875X-73" target="l2xFuCRRe57t5iRW875X-75">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-73" value="Save Original Documents as PDF (pinecone_merged_text.pdf) for reference" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="504" y="496" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-78" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="l2xFuCRRe57t5iRW875X-13" source="l2xFuCRRe57t5iRW875X-75" target="l2xFuCRRe57t5iRW875X-77">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-75" value="Split Documents into Smaller Chunks using (RecursiveCharacterTextSplitter)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="504" y="602" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-80" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="l2xFuCRRe57t5iRW875X-13" source="l2xFuCRRe57t5iRW875X-77" target="l2xFuCRRe57t5iRW875X-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-77" value="Save Split Documents as PDF (pinecone_splitted_docs.pdf) for reference" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="504" y="710" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-82" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="l2xFuCRRe57t5iRW875X-13" source="l2xFuCRRe57t5iRW875X-79" target="l2xFuCRRe57t5iRW875X-81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-79" value="Initialize HuggingFace Embeddings Model&lt;br&gt;(sentence-transformers/all-MiniLM-L6-v2)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="497" y="810" width="225" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-84" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="l2xFuCRRe57t5iRW875X-13" source="l2xFuCRRe57t5iRW875X-81" target="l2xFuCRRe57t5iRW875X-83">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-81" value="Initialize Pinecone Client and Get Index Object" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="497" y="920" width="225" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-83" value="Check if Pinecone Index Exists" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="496.5" y="1030" width="225" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-85" value="Raise Error: Index Not Found. Please Create from Dashboard." style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="688" y="1150" width="196" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-92" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="522" y="1210" as="sourcePoint" />
+            <mxPoint x="522" y="1240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-86" value="Initialize Pinecone VectorStore with Embeddings" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="412" y="1150" width="196" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-87" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="610" y="1100" as="sourcePoint" />
+            <mxPoint x="517" y="1150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-88" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="l2xFuCRRe57t5iRW875X-13" source="l2xFuCRRe57t5iRW875X-83" target="l2xFuCRRe57t5iRW875X-85">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="608" y="1110" as="sourcePoint" />
+            <mxPoint x="498" y="1010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-89" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="766" y="1100" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-90" value="yes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="474.5" y="1110" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-91" value="Upload Split Documents (Vectors) to Pinecone Index" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="417" y="1240" width="196" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-96" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="l2xFuCRRe57t5iRW875X-13" source="l2xFuCRRe57t5iRW875X-91">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="360" y="1060" as="sourcePoint" />
+            <mxPoint x="296" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="360" y="1270" />
+              <mxPoint x="360" y="1040" />
+              <mxPoint x="360" y="790" />
+              <mxPoint x="360" y="560" />
+              <mxPoint x="360" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-29" value="no, it is not loaded" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="586" y="130" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-28" value="yes it is loaded" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry x="136" y="130" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-24" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="l2xFuCRRe57t5iRW875X-23">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="466" y="590" as="sourcePoint" />
+            <mxPoint x="526" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.422;entryY=-0.004;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="l2xFuCRRe57t5iRW875X-3" target="l2xFuCRRe57t5iRW875X-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-41" value="" style="swimlane;startSize=0;" vertex="1" parent="1">
+          <mxGeometry x="-416" y="473" width="310" height="217" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-43" value="once the user asked the query and select the send button , it calls the rag pipeline to get the ansewer" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-41">
+          <mxGeometry x="20" y="55" width="220" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-42" value="chatbot.py" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="l2xFuCRRe57t5iRW875X-41">
+          <mxGeometry x="20" y="8" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-46" value="display the answer in streamlit UI&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="l2xFuCRRe57t5iRW875X-41">
+          <mxGeometry x="20" y="140" width="220" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="l2xFuCRRe57t5iRW875X-43" target="l2xFuCRRe57t5iRW875X-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2xFuCRRe57t5iRW875X-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.6;entryY=1.064;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="l2xFuCRRe57t5iRW875X-40" target="l2xFuCRRe57t5iRW875X-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="faiss based chatbot" id="YDD7l8LnUQVYI1vdQm8M">
+    <mxGraphModel dx="2700" dy="2034" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-0" />
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-1" parent="-vkzF69cRMOOJGF4BOcR-0" />
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-2" value="&lt;span style=&quot;font-size: 24px;&quot;&gt;&lt;b&gt;Movie-based RAG Q&amp;amp;A chatbot project code flow using faiss for vectorstore and groq inference for model, huggingface for embeddings&lt;/b&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-1">
+          <mxGeometry x="29" y="10" width="690" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-1" source="-vkzF69cRMOOJGF4BOcR-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="179" y="85" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-4" value="" style="swimlane;startSize=0;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-1">
+          <mxGeometry x="175" y="95" width="310" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-4" source="-vkzF69cRMOOJGF4BOcR-6" target="-vkzF69cRMOOJGF4BOcR-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-6" value="Extract data from Mongodb using pymongo package" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-4">
+          <mxGeometry x="30" y="50" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-7" value="Step 1 : ETL Process" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-4">
+          <mxGeometry x="15" y="10" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-4" source="-vkzF69cRMOOJGF4BOcR-9" target="-vkzF69cRMOOJGF4BOcR-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-9" value="Transform the extracted data ( the extraced data is unstructured , we are structuring it here )" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-4">
+          <mxGeometry x="30" y="150" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-10" value="create tables for comments, movies, embedded_movies, theaters, users, sessions and load the transformed data" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-4">
+          <mxGeometry x="30" y="250" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-11" value="" style="swimlane;startSize=0;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-1">
+          <mxGeometry y="480" width="780" height="1140" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-12" value="Step 2 : RAG Pipeline" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="96" y="18" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-13" value="check if the vectorstore_path/index.faiss exits" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="106" y="50" width="480" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-11" source="-vkzF69cRMOOJGF4BOcR-15" target="-vkzF69cRMOOJGF4BOcR-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-15" value="fetch the vectors from the faiss.index in local" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="96" y="180" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-16" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.589;entryY=-0.05;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-11" source="-vkzF69cRMOOJGF4BOcR-13" target="-vkzF69cRMOOJGF4BOcR-15">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="356" y="70" as="sourcePoint" />
+            <mxPoint x="406" y="20" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-11" source="-vkzF69cRMOOJGF4BOcR-18" target="-vkzF69cRMOOJGF4BOcR-31">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="604" y="270" />
+              <mxPoint x="604" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-18" value="Build &amp;amp; Upload New Vectors to faiss.index" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="504" y="180" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-11" source="-vkzF69cRMOOJGF4BOcR-20" target="-vkzF69cRMOOJGF4BOcR-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-20" value="Setup Retriever (k=5) from Vectorstore" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="96" y="280" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-11" source="-vkzF69cRMOOJGF4BOcR-22" target="-vkzF69cRMOOJGF4BOcR-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-22" value="Initialize Groq-based LLM (gemma2-9b-it)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="96" y="370" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-11" source="-vkzF69cRMOOJGF4BOcR-24" target="-vkzF69cRMOOJGF4BOcR-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-24" value="Define ChatPromptTemplate for RAG" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="96" y="465" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-11" source="-vkzF69cRMOOJGF4BOcR-26" target="-vkzF69cRMOOJGF4BOcR-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-26" value="Create RetrievalQA Chain (combine retriever and LLM)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="96" y="570" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-11" source="-vkzF69cRMOOJGF4BOcR-28" target="-vkzF69cRMOOJGF4BOcR-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-28" value="Invoke RAG Chain with User Query" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="96" y="670" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-29" value="Return Generated Answer" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="96" y="770" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-11" source="-vkzF69cRMOOJGF4BOcR-31" target="-vkzF69cRMOOJGF4BOcR-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-31" value="Retrieve and Merge All Movie Data into Natural Language Sentences" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="504" y="280" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-11" source="-vkzF69cRMOOJGF4BOcR-33" target="-vkzF69cRMOOJGF4BOcR-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-33" value="Convert Sentences to LangChain Document Objects" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="504" y="390" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-11" source="-vkzF69cRMOOJGF4BOcR-35" target="-vkzF69cRMOOJGF4BOcR-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-35" value="Save Original Documents as PDF (faiss_merged_text.pdf) for reference" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="504" y="496" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-11" source="-vkzF69cRMOOJGF4BOcR-37" target="-vkzF69cRMOOJGF4BOcR-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-37" value="Split Documents into Smaller Chunks using (RecursiveCharacterTextSplitter)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="504" y="602" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-11" source="-vkzF69cRMOOJGF4BOcR-39" target="-vkzF69cRMOOJGF4BOcR-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-39" value="Save Split Documents as PDF (faiss_splitted_docs.pdf) for reference" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="504" y="710" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-11" source="-vkzF69cRMOOJGF4BOcR-41" target="-vkzF69cRMOOJGF4BOcR-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-41" value="Initialize HuggingFace Embeddings Model&lt;br&gt;(sentence-transformers/all-MiniLM-L6-v2)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="497" y="810" width="225" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-11" source="-vkzF69cRMOOJGF4BOcR-43" target="-vkzF69cRMOOJGF4BOcR-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-43" value="store the embeddings in faiss database" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="497" y="920" width="225" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-44" value="save the vectors in vectorstore/movie_index path" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="496.5" y="1030" width="225" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-53" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-11" source="-vkzF69cRMOOJGF4BOcR-44">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="417" y="1270" as="sourcePoint" />
+            <mxPoint x="296" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="360" y="1065" />
+              <mxPoint x="360" y="1040" />
+              <mxPoint x="360" y="790" />
+              <mxPoint x="360" y="560" />
+              <mxPoint x="360" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-54" value="no, it is not exists" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="586" y="130" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-55" value="yes it is exists" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry x="136" y="130" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-56" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-1" target="-vkzF69cRMOOJGF4BOcR-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="466" y="590" as="sourcePoint" />
+            <mxPoint x="526" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.422;entryY=-0.004;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-1" source="-vkzF69cRMOOJGF4BOcR-4" target="-vkzF69cRMOOJGF4BOcR-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-58" value="" style="swimlane;startSize=0;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-1">
+          <mxGeometry x="-416" y="473" width="310" height="217" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-59" value="once the user asked the query and select the send button , it calls the rag pipeline to get the ansewer" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-58">
+          <mxGeometry x="20" y="55" width="220" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-60" value="chatbot.py" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-58">
+          <mxGeometry x="20" y="8" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-61" value="display the answer in streamlit UI&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-58">
+          <mxGeometry x="20" y="140" width="220" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-1" source="-vkzF69cRMOOJGF4BOcR-59" target="-vkzF69cRMOOJGF4BOcR-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-vkzF69cRMOOJGF4BOcR-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.6;entryY=1.064;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="-vkzF69cRMOOJGF4BOcR-1" source="-vkzF69cRMOOJGF4BOcR-29" target="-vkzF69cRMOOJGF4BOcR-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lE87pvtOOlqKDmMbS1h7-0" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="-vkzF69cRMOOJGF4BOcR-1">
+          <mxGeometry x="1070" y="330" width="10" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

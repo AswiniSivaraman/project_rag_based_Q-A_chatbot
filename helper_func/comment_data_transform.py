@@ -1,7 +1,25 @@
+# Import necessary libraries
 import pandas as pd
 import re  
 
 def comments_to_sentence(row):
+    """
+    Transforms a single row (representing a comment document) from a DataFrame
+    into a human-readable sentence.
+
+    This function extracts relevant fields from the input row, such as name,
+    email, movie ID, comment text, and date, and constructs a descriptive
+    sentence about the comment. It gracefully handles missing or null values
+    for optional fields by omitting them from the generated sentence.
+
+    Args:
+        row (pandas.Series): A Series object representing a single row from
+                             a DataFrame, expected to contain comment-related
+                             fields.
+
+    Returns:
+        str: A formatted sentence describing the comment.
+    """
 
     name = row.get("name", "Someone")
     email = row.get("email")

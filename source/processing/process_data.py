@@ -1,3 +1,4 @@
+# Import necessary libraries
 import pandas as pd
 from source.processing.load_data_from_sql import load_all_tables
 from fpdf import FPDF
@@ -10,7 +11,7 @@ from helper_func.users_data_transform import users_to_sentence
 from helper_func.embedded_movies_data_transform import embedded_movies_to_sentence
 from tqdm import tqdm
 
-# Function to format each row as a string "col1: val1, col2: val2, ..."
+# Function to format each row as a string 
 def row_to_string(row, table_name):
     if table_name == "movies":
         return movies_to_sentence(row)

@@ -1,7 +1,26 @@
+# Import necessary libraries
 import pandas as pd
 import re
 
 def embedded_movies_to_sentence(row):
+    """
+    Transforms a single row (representing an embedded movie document) from a DataFrame
+    into a comprehensive, human-readable sentence.
+
+    This function extracts various movie attributes such as title, genre, year, plot,
+    cast, crew, ratings, and more from the input row. It intelligently constructs
+    a descriptive sentence by conditionally including details only if their
+    corresponding values are present and not null. This is particularly useful
+    for generating text summaries or descriptions from structured movie metadata.
+
+    Args:
+        row (pandas.Series): A Series object representing a single movie record,
+                             expected to contain attributes of an embedded movie.
+
+    Returns:
+        str: A formatted sentence summarizing the movie's details.
+    """
+
     sentence = (
         (f"The movie is titled \"{row.get('title')}\"" if pd.notnull(row.get('title')) else "") +
         (f" and is a {row.get('genres')} {row.get('type')}" if pd.notnull(row.get('genres')) and pd.notnull(row.get('type')) else "") +

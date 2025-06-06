@@ -28,6 +28,7 @@
 
 
 # app.py
+# Import necessary libraries
 import streamlit as st
 from dotenv import load_dotenv
 from source.rag.rag_pipeline import (

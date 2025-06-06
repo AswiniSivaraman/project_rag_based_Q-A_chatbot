@@ -1,7 +1,26 @@
+# Import necessary libraries
 import pandas as pd
 import re
 
 def movies_to_sentence(row):
+    """
+    Converts a single row of movie data from a pandas DataFrame into a concise,
+    human-readable sentence.
+
+    This function extracts various movie attributes such as title, genre, year,
+    plot, cast, crew, ratings (IMDb and Rotten Tomatoes), and more. It constructs
+    a descriptive sentence by conditionally including details only if their
+    corresponding values are present (not null) in the input row. This is useful
+    for generating text summaries or rich descriptions of movies from their
+    structured metadata.
+
+    Args:
+        row (pandas.Series): A Series object representing a single movie record
+                             from a DataFrame, containing various movie attributes.
+
+    Returns:
+        str: A formatted sentence summarizing the movie's key details.
+    """
     sentence = (
         (f"The movie is titled \"{row.get('title')}\"" if pd.notnull(row.get('title')) else "") +
         (f" and is a {row.get('genres')} {row.get('type')}" if pd.notnull(row.get('genres')) and pd.notnull(row.get('type')) else "") +
